@@ -1,0 +1,333 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Developer | Portfolio</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:wght@300;400;600&family=DM+Mono&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
+</head>
+<body>
+    <!-- Page Transition Overlay -->
+    <div id="pageOverlay"></div>
+    
+    <!-- Grain Texture Overlay -->
+    <div class="grain-overlay"></div>
+    
+    <!-- Custom Cursor -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-follower" id="cursorFollower"></div>
+    
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">PORTFOLIO</a>
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#work" class="nav-link">Work</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- MAIN CONTENT - All sections in one page -->
+    <main>
+        <!-- HOME SECTION -->
+        <section id="home" class="section home-section">
+            <!-- Three.js Canvas Background -->
+            <canvas id="threeCanvas"></canvas>
+            
+            <div class="home-content">
+                <div class="hero-text">
+                    <h1 class="display-title">CREATIVE / DEVELOPER</h1>
+                    <p class="subtitle">
+                        <span class="typing-text"></span><span class="cursor-blink">|</span>
+                    </p>
+                </div>
+                
+                <div class="scroll-indicator">
+                    <div class="scroll-line"></div>
+                    <div class="scroll-arrow"></div>
+                </div>
+            </div>
+            
+            <!-- Work Preview Grid -->
+            <div class="work-preview">
+                <div class="preview-grid">
+                    <div class="preview-card" data-cursor="VIEW">
+                        <span class="card-number">01</span>
+                        <h3 class="card-title">Brand Identity</h3>
+                        <div class="tech-tags">
+                            <span>React</span>
+                            <span>Three.js</span>
+                            <span>GSAP</span>
+                        </div>
+                    </div>
+                    <div class="preview-card" data-cursor="VIEW">
+                        <span class="card-number">02</span>
+                        <h3 class="card-title">E-Commerce Platform</h3>
+                        <div class="tech-tags">
+                            <span>Django</span>
+                            <span>PostgreSQL</span>
+                            <span>Stripe</span>
+                        </div>
+                    </div>
+                    <div class="preview-card" data-cursor="VIEW">
+                        <span class="card-number">03</span>
+                        <h3 class="card-title">Mobile Application</h3>
+                        <div class="tech-tags">
+                            <span>React Native</span>
+                            <span>Firebase</span>
+                            <span>Redux</span>
+                        </div>
+                    </div>
+                    <div class="preview-card" data-cursor="VIEW">
+                        <span class="card-number">04</span>
+                        <h3 class="card-title">Design System</h3>
+                        <div class="tech-tags">
+                            <span>Figma</span>
+                            <span>Storybook</span>
+                            <span>CSS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Stats Row -->
+            <div class="stats-row">
+                <div class="stat-item">
+                    <span class="stat-number" data-target="50">0</span>
+                    <span class="stat-label">Projects Completed</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="8">0</span>
+                    <span class="stat-label">Years Experience</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="30">0</span>
+                    <span class="stat-label">Happy Clients</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="15">0</span>
+                    <span class="stat-label">Awards Won</span>
+                </div>
+            </div>
+        </section>
+        
+        <!-- ABOUT SECTION -->
+        <section id="about" class="section about-section">
+            <div class="section-label-vertical">ABOUT</div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="bio-paragraph">
+                        I am a creative developer passionate about crafting digital experiences 
+                        that blend artistry with functionality. With a background in both design 
+                        and engineering, I bridge the gap between aesthetics and performance.
+                    </p>
+                    <p class="bio-paragraph">
+                        My work spans web applications, interactive experiences, and brand identities. 
+                        I believe in the power of minimalism — removing the unnecessary to reveal 
+                        the essential.
+                    </p>
+                    
+                    <div class="skills-list">
+                        <span class="skill-item">JavaScript</span>
+                        <span class="skill-divider"></span>
+                        <span class="skill-item">Python</span>
+                        <span class="skill-divider"></span>
+                        <span class="skill-item">React</span>
+                        <span class="skill-divider"></span>
+                        <span class="skill-item">Three.js</span>
+                        <span class="skill-divider"></span>
+                        <span class="skill-item">Django</span>
+                        <span class="skill-divider"></span>
+                        <span class="skill-item">Node.js</span>
+                        <span class="skill-divider"></span>
+                        <span class="skill-item">WebGL</span>
+                        <span class="skill-divider"></span>
+                        <span class="skill-item">GSAP</span>
+                    </div>
+                </div>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <span class="timeline-year">2024</span>
+                        <span class="timeline-event">Senior Developer at Tech Corp</span>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-year">2022</span>
+                        <span class="timeline-event">Lead Frontend Engineer at StartupXYZ</span>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-year">2020</span>
+                        <span class="timeline-event">Full Stack Developer at Digital Agency</span>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-year">2018</span>
+                        <span class="timeline-event">Junior Developer at Web Studio</span>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-year">2016</span>
+                        <span class="timeline-event">Computer Science Degree</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- WORK SECTION -->
+        <section id="work" class="section work-section">
+            <div class="section-header">
+                <span class="section-label">SELECTED WORKS</span>
+            </div>
+            
+            <div class="horizontal-scroll-container">
+                <div class="horizontal-scroll-wrapper">
+                    <!-- Project Panel 1 -->
+                    <div class="project-panel" data-cursor="VIEW">
+                        <div class="project-image-placeholder"></div>
+                        <div class="project-overlay">
+                            <span class="project-category">Web Application</span>
+                            <span class="project-year">2024</span>
+                            <h2 class="project-title">Financial Dashboard</h2>
+                            <div class="project-tools">
+                                <span>React</span>
+                                <span>D3.js</span>
+                                <span>Node.js</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project Panel 2 -->
+                    <div class="project-panel" data-cursor="VIEW">
+                        <div class="project-image-placeholder"></div>
+                        <div class="project-overlay">
+                            <span class="project-category">E-Commerce</span>
+                            <span class="project-year">2024</span>
+                            <h2 class="project-title">Luxury Fashion Store</h2>
+                            <div class="project-tools">
+                                <span>Next.js</span>
+                                <span>Shopify</span>
+                                <span>WebGL</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project Panel 3 -->
+                    <div class="project-panel" data-cursor="VIEW">
+                        <div class="project-image-placeholder"></div>
+                        <div class="project-overlay">
+                            <span class="project-category">Interactive Experience</span>
+                            <span class="project-year">2023</span>
+                            <h2 class="project-title">Art Gallery Virtual Tour</h2>
+                            <div class="project-tools">
+                                <span>Three.js</span>
+                                <span>WebGL</span>
+                                <span>GSAP</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project Panel 4 -->
+                    <div class="project-panel" data-cursor="VIEW">
+                        <div class="project-image-placeholder"></div>
+                        <div class="project-overlay">
+                            <span class="project-category">Mobile App</span>
+                            <span class="project-year">2023</span>
+                            <h2 class="project-title">Fitness Tracking App</h2>
+                            <div class="project-tools">
+                                <span>React Native</span>
+                                <span>Firebase</span>
+                                <span>GraphQL</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project Panel 5 -->
+                    <div class="project-panel" data-cursor="VIEW">
+                        <div class="project-image-placeholder"></div>
+                        <div class="project-overlay">
+                            <span class="project-category">Brand Identity</span>
+                            <span class="project-year">2022</span>
+                            <h2 class="project-title">Tech Startup Rebrand</h2>
+                            <div class="project-tools">
+                                <span>Figma</span>
+                                <span>After Effects</span>
+                                <span>Cinema 4D</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="section contact-section">
+            <div class="contact-content">
+                <div class="contact-header">
+                    <span class="contact-label">GET IN TOUCH</span>
+                </div>
+                
+                <a href="mailto:hello@portfolio.com" class="contact-email" data-cursor="EMAIL">
+                    hello@portfolio.com
+                </a>
+                
+                <div class="social-links">
+                    <a href="#" class="social-link" data-cursor="LINK">GitHub</a>
+                    <a href="#" class="social-link" data-cursor="LINK">LinkedIn</a>
+                    <a href="#" class="social-link" data-cursor="LINK">Twitter</a>
+                    <a href="#" class="social-link" data-cursor="LINK">Dribbble</a>
+                </div>
+                
+                <div class="contact-form-container">
+                    <form id="contactForm" class="contact-form">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <input type="text" name="name" id="name" class="form-input" placeholder=" " required>
+                            <label for="name" class="form-label">Name</label>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="email" name="email" id="email" class="form-input" placeholder=" " required>
+                            <label for="email" class="form-label">Email</label>
+                        </div>
+                        
+                        <div class="form-group">
+                            <textarea name="message" id="message" class="form-textarea" placeholder=" " rows="4" required></textarea>
+                            <label for="message" class="form-label">Message</label>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn" data-cursor="SEND">
+                            <span>Send Message</span>
+                        </button>
+                    </form>
+                    
+                    <div id="formMessage" class="form-message"></div>
+                </div>
+            </div>
+            
+            <footer class="site-footer">
+                <p>&copy; 2024 Portfolio. All rights reserved.</p>
+            </footer>
+        </section>
+    </main>
+    
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <script src="{% static 'core/js/three-scene.js' %}"></script>
+    <script src="{% static 'core/js/main.js' %}"></script>
+</body>
+</html>
