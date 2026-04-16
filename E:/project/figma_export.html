@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design System Specification | Portfolio</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:wght@300;400;600&family=DM+Mono&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --black: #000000;
+            --off-black: #0a0a0a;
+            --dark: #111111;
+            --mid: #1a1a1a;
+            --grey-dark: #333333;
+            --grey: #666666;
+            --grey-light: #999999;
+            --off-white: #f5f5f5;
+            --white: #ffffff;
+            --accent: #ffffff;
+            
+            --font-display: 'Cormorant Garamond', Georgia, serif;
+            --font-body: 'DM Mono', 'Courier New', monospace;
+            --font-accent: 'Bebas Neue', sans-serif;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: var(--off-white);
+            color: var(--black);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            padding: 60px;
+        }
+        
+        .spec-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        header {
+            margin-bottom: 80px;
+            padding-bottom: 40px;
+            border-bottom: 2px solid var(--black);
+        }
+        
+        h1 {
+            font-family: var(--font-display);
+            font-size: 72px;
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+        
+        .subtitle {
+            font-size: 14px;
+            color: var(--grey);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .spec-section {
+            margin-bottom: 80px;
+        }
+        
+        .spec-title {
+            font-family: var(--font-accent);
+            font-size: 36px;
+            letter-spacing: 3px;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+        }
+        
+        /* Color Palette */
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .color-swatch {
+            border: 1px solid var(--grey-dark);
+        }
+        
+        .color-preview {
+            height: 120px;
+            width: 100%;
+        }
+        
+        .color-info {
+            padding: 20px;
+        }
+        
+        .color-name {
+            font-family: var(--font-body);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+        
+        .color-hex {
+            font-family: var(--font-body);
+            font-size: 14px;
+            color: var(--grey);
+        }
+        
+        /* Typography */
+        .type-sample {
+            margin-bottom: 40px;
+            padding: 30px;
+            border: 1px solid var(--grey-dark);
+        }
+        
+        .type-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--grey);
+            margin-bottom: 20px;
+        }
+        
+        .type-display {
+            font-family: var(--font-display);
+            font-size: 64px;
+            font-weight: 300;
+            line-height: 1.1;
+            margin-bottom: 15px;
+        }
+        
+        .type-body {
+            font-family: var(--font-body);
+            font-size: 16px;
+            line-height: 1.8;
+        }
+        
+        .type-accent {
+            font-family: var(--font-accent);
+            font-size: 48px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+        
+        /* Components */
+        .component-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+        
+        .component-card {
+            padding: 40px;
+            border: 1px solid var(--grey-dark);
+            background: var(--white);
+        }
+        
+        .btn-primary {
+            display: inline-block;
+            background: var(--black);
+            color: var(--white);
+            font-family: var(--font-body);
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            padding: 16px 40px;
+            border: 1px solid var(--black);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background: var(--white);
+            color: var(--black);
+        }
+        
+        .btn-outline {
+            display: inline-block;
+            background: transparent;
+            color: var(--black);
+            font-family: var(--font-body);
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            padding: 16px 40px;
+            border: 1px solid var(--black);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline:hover {
+            background: var(--black);
+            color: var(--white);
+        }
+        
+        .input-field {
+            width: 100%;
+            padding: 15px 0;
+            border: none;
+            border-bottom: 1px solid var(--grey-dark);
+            font-family: var(--font-body);
+            font-size: 16px;
+            outline: none;
+        }
+        
+        .input-field:focus {
+            border-color: var(--black);
+        }
+        
+        /* Layout Principles */
+        .layout-demo {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .layout-block {
+            background: var(--black);
+            height: 100px;
+            opacity: 0.1;
+        }
+        
+        .layout-block.full {
+            grid-column: span 12;
+        }
+        
+        .layout-block.half {
+            grid-column: span 6;
+        }
+        
+        .layout-block.third {
+            grid-column: span 4;
+        }
+        
+        /* Spacing Scale */
+        .spacing-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .spacing-bar {
+            background: var(--black);
+            margin-right: 20px;
+        }
+        
+        .spacing-label {
+            font-family: var(--font-body);
+            font-size: 12px;
+            color: var(--grey);
+        }
+        
+        footer {
+            margin-top: 100px;
+            padding-top: 40px;
+            border-top: 1px solid var(--grey-dark);
+            text-align: center;
+            font-size: 12px;
+            color: var(--grey);
+        }
+    </style>
+</head>
+<body>
+    <div class="spec-container">
+        <header>
+            <h1>DESIGN SYSTEM</h1>
+            <p class="subtitle">Premium Portfolio — Black & White Minimalism</p>
+        </header>
+        
+        <!-- COLOR PALETTE -->
+        <section class="spec-section">
+            <h2 class="spec-title">Color Palette</h2>
+            <div class="color-grid">
+                <div class="color-swatch">
+                    <div class="color-preview" style="background: var(--black);"></div>
+                    <div class="color-info">
+                        <div class="color-name">Black</div>
+                        <div class="color-hex">#000000</div>
+                    </div>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-preview" style="background: var(--off-black);"></div>
+                    <div class="color-info">
+                        <div class="color-name">Off Black</div>
+                        <div class="color-hex">#0a0a0a</div>
+                    </div>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-preview" style="background: var(--dark);"></div>
+                    <div class="color-info">
+                        <div class="color-name">Dark</div>
+                        <div class="color-hex">#111111</div>
+                    </div>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-preview" style="background: var(--mid);"></div>
+                    <div class="color-info">
+                        <div class="color-name">Mid</div>
+                        <div class="color-hex">#1a1a1a</div>
+                    </div>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-preview" style="background: var(--grey-dark);"></div>
+                    <div class="color-info">
+                        <div class="color-name">Grey Dark</div>
+                        <div class="color-hex">#333333</div>
+                    </div>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-preview" style="background: var(--grey);"></div>
+                    <div class="color-info">
+                        <div class="color-name">Grey</div>
+                        <div class="color-hex">#666666</div>
+                    </div>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-preview" style="background: var(--grey-light);"></div>
+                    <div class="color-info">
+                        <div class="color-name">Grey Light</div>
+                        <div class="color-hex">#999999</div>
+                    </div>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-preview" style="background: var(--off-white);"></div>
+                    <div class="color-info">
+                        <div class="color-name">Off White</div>
+                        <div class="color-hex">#f5f5f5</div>
+                    </div>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-preview" style="background: var(--white);"></div>
+                    <div class="color-info">
+                        <div class="color-name">White</div>
+                        <div class="color-hex">#ffffff</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- TYPOGRAPHY -->
+        <section class="spec-section">
+            <h2 class="spec-title">Typography</h2>
+            
+            <div class="type-sample">
+                <div class="type-label">Display Font — Cormorant Garamond</div>
+                <div class="type-display">Creative Developer</div>
+                <p class="type-body">Used for headlines and large display text. Weights: 300, 400, 600</p>
+            </div>
+            
+            <div class="type-sample">
+                <div class="type-label">Body Font — DM Mono</div>
+                <p class="type-body" style="font-size: 18px; margin-bottom: 15px;">
+                    I am a creative developer passionate about crafting digital experiences that blend 
+                    artistry with functionality. With a background in both design and engineering, 
+                    I bridge the gap between aesthetics and performance.
+                </p>
+                <div class="type-label" style="margin-top: 20px;">Monospace for body text, labels, and navigation. Weight: 400</div>
+            </div>
+            
+            <div class="type-sample">
+                <div class="type-label">Accent Font — Bebas Neue</div>
+                <div class="type-accent">Selected Works</div>
+                <p class="type-body">Condensed sans-serif for section labels and numbers. Used sparingly for emphasis.</p>
+            </div>
+        </section>
+        
+        <!-- SPACING SCALE -->
+        <section class="spec-section">
+            <h2 class="spec-title">Spacing Scale</h2>
+            
+            <div class="spacing-item">
+                <div class="spacing-bar" style="width: 8px; height: 40px;"></div>
+                <span class="spacing-label">8px — Micro spacing</span>
+            </div>
+            <div class="spacing-item">
+                <div class="spacing-bar" style="width: 16px; height: 40px;"></div>
+                <span class="spacing-label">16px — Small spacing</span>
+            </div>
+            <div class="spacing-item">
+                <div class="spacing-bar" style="width: 24px; height: 40px;"></div>
+                <span class="spacing-label">24px — Medium spacing</span>
+            </div>
+            <div class="spacing-item">
+                <div class="spacing-bar" style="width: 40px; height: 40px;"></div>
+                <span class="spacing-label">40px — Large spacing</span>
+            </div>
+            <div class="spacing-item">
+                <div class="spacing-bar" style="width: 60px; height: 40px;"></div>
+                <span class="spacing-label">60px — Section padding</span>
+            </div>
+            <div class="spacing-item">
+                <div class="spacing-bar" style="width: 120px; height: 40px;"></div>
+                <span class="spacing-label">120px — Section vertical padding</span>
+            </div>
+        </section>
+        
+        <!-- LAYOUT GRID -->
+        <section class="spec-section">
+            <h2 class="spec-title">Layout Grid</h2>
+            <p class="type-label">12-column grid system with 1400px max container width</p>
+            <div class="layout-demo">
+                <div class="layout-block full"></div>
+                <div class="layout-block half"></div>
+                <div class="layout-block half"></div>
+                <div class="layout-block third"></div>
+                <div class="layout-block third"></div>
+                <div class="layout-block third"></div>
+            </div>
+        </section>
+        
+        <!-- COMPONENTS -->
+        <section class="spec-section">
+            <h2 class="spec-title">Components</h2>
+            
+            <div class="component-grid">
+                <div class="component-card">
+                    <div class="type-label" style="margin-bottom: 20px;">Buttons</div>
+                    <button class="btn-primary" style="margin-bottom: 15px;">Primary Button</button>
+                    <br>
+                    <button class="btn-outline">Outline Button</button>
+                </div>
+                
+                <div class="component-card">
+                    <div class="type-label" style="margin-bottom: 20px;">Form Inputs</div>
+                    <input type="text" class="input-field" placeholder="Type something...">
+                    <p class="type-label" style="margin-top: 15px;">Bottom border only, no background</p>
+                </div>
+                
+                <div class="component-card">
+                    <div class="type-label" style="margin-bottom: 20px;">Cards</div>
+                    <div style="border: 1px solid var(--grey-dark); padding: 30px;">
+                        <div style="font-family: var(--font-accent); font-size: 36px; color: var(--grey); margin-bottom: 15px;">01</div>
+                        <div style="font-family: var(--font-display); font-size: 24px; margin-bottom: 15px;">Project Title</div>
+                        <div style="display: flex; gap: 10px;">
+                            <span style="font-size: 10px; border: 1px solid var(--grey-dark); padding: 4px 10px; text-transform: uppercase;">React</span>
+                            <span style="font-size: 10px; border: 1px solid var(--grey-dark); padding: 4px 10px; text-transform: uppercase;">Three.js</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="component-card">
+                    <div class="type-label" style="margin-bottom: 20px;">Navigation</div>
+                    <nav style="display: flex; justify-content: space-between; align-items: center;">
+                        <span style="font-family: var(--font-accent); font-size: 20px; letter-spacing: 3px;">PORTFOLIO</span>
+                        <div style="display: flex; gap: 30px;">
+                            <span style="font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">Home</span>
+                            <span style="font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--grey);">About</span>
+                            <span style="font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--grey);">Work</span>
+                            <span style="font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--grey);">Contact</span>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </section>
+        
+        <!-- DESIGN PRINCIPLES -->
+        <section class="spec-section">
+            <h2 class="spec-title">Design Principles</h2>
+            
+            <div class="component-card" style="margin-bottom: 20px;">
+                <div class="type-label">1. Generous Whitespace</div>
+                <p class="type-body">Use negative space as a design element. Allow content to breathe with ample padding and margins.</p>
+            </div>
+            
+            <div class="component-card" style="margin-bottom: 20px;">
+                <div class="type-label">2. Razor-Thin Borders</div>
+                <p class="type-body">1px borders and lines serve as subtle dividers and structural elements without visual weight.</p>
+            </div>
+            
+            <div class="component-card" style="margin-bottom: 20px;">
+                <div class="type-label">3. Bold Typographic Hierarchy</div>
+                <p class="type-body">Contrast massive display type (60-140px) with tiny labels (11-13px) for dramatic effect.</p>
+            </div>
+            
+            <div class="component-card" style="margin-bottom: 20px;">
+                <div class="type-label">4. Asymmetric Layouts</div>
+                <p class="type-body">Break the grid intentionally. Create visual tension through unbalanced compositions.</p>
+            </div>
+            
+            <div class="component-card" style="margin-bottom: 20px;">
+                <div class="type-label">5. Grain Texture Overlay</div>
+                <p class="type-body">Subtle noise texture (3% opacity) adds depth and prevents flat, sterile appearance.</p>
+            </div>
+        </section>
+        
+        <!-- ANIMATION GUIDELINES -->
+        <section class="spec-section">
+            <h2 class="spec-title">Animation Guidelines</h2>
+            
+            <div class="component-card" style="margin-bottom: 20px;">
+                <div class="type-label">Duration</div>
+                <p class="type-body">Fast transitions: 0.3s | Standard: 0.4s | Slow: 0.6-1.2s</p>
+            </div>
+            
+            <div class="component-card" style="margin-bottom: 20px;">
+                <div class="type-label">Easing</div>
+                <p class="type-body">power3.out for entrances | power2.in/out for overlays | elastic.out for magnetic effects</p>
+            </div>
+            
+            <div class="component-card" style="margin-bottom: 20px;">
+                <div class="type-label">Page Transitions</div>
+                <p class="type-body">Overlay wipes down (scaleY: 1, 0.4s), content changes, overlay retracts (scaleY: 0, 0.4s)</p>
+            </div>
+        </section>
+        
+        <footer>
+            <p>Design System Specification — Premium Portfolio © 2024</p>
+            <p style="margin-top: 10px;">Built with Django, Three.js & GSAP</p>
+        </footer>
+    </div>
+</body>
+</html>
